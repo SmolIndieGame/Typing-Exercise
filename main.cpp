@@ -1,8 +1,9 @@
 // Highest Score:
-//        99104.672
+//           99.336
 
 #pragma GCC optimize("O2")
 #include <stdio.h>
+#include <iomanip>
 #include <iostream>
 #include <fstream>
 #include <chrono>
@@ -21,13 +22,11 @@ void setHighestScore(double value)
 {
     std::fstream file("./main.cpp");
     file.seekp(22, std::ios_base::beg);
-    char s[16];
-    sprintf(s, "%16.9g", value);
-    file << s;
+    file << std::setprecision(9) << std::setw(16) << value;
 }
 
 const double penalty = 1;
-const int oneGameCount = 10;
+const int oneGameCount = 5;
 const int stringLen = 20;
 const char *alphabets = "qwertyuiopasdfghjklzxcvbnm ";
 int len;
